@@ -1,0 +1,121 @@
+connection_id,source,destination,mode,distance_km,duration_min,cost_inr,co2_kg
+C001,Koti,Abids,Walking,2.0,26,0,0.0
+C001,Koti,Abids,Bicycle,2.0,9,0,0.0
+C001,Koti,Abids,Public Transport,2.0,16,15,0.2
+C001,Koti,Abids,Car,2.0,8,35,0.5
+C002,Koti,Nampally,Walking,3.0,38,0,0.0
+C002,Koti,Nampally,Bicycle,3.0,13,0,0.0
+C002,Koti,Nampally,Public Transport,3.0,22,15,0.3
+C002,Koti,Nampally,Car,3.0,11,45,0.7
+C003,Koti,Charminar,Walking,4.0,50,0,0.0
+C003,Koti,Charminar,Bicycle,4.0,17,0,0.0
+C003,Koti,Charminar,Public Transport,4.0,28,20,0.4
+C003,Koti,Charminar,Car,4.0,14,65,0.9
+C004,Abids,Nampally,Walking,1.5,19,0,0.0
+C004,Abids,Nampally,Bicycle,1.5,7,0,0.0
+C004,Abids,Nampally,Public Transport,1.5,12,15,0.2
+C004,Abids,Nampally,Car,1.5,6,30,0.4
+C005,Abids,Charminar,Walking,3.0,38,0,0.0
+C005,Abids,Charminar,Bicycle,3.0,13,0,0.0
+C005,Abids,Charminar,Public Transport,3.0,22,15,0.3
+C005,Abids,Charminar,Car,3.0,11,45,0.7
+C006,Nampally,Mehdipatnam,Walking,5.0,64,0,0.0
+C006,Nampally,Mehdipatnam,Bicycle,5.0,22,0,0.0
+C006,Nampally,Mehdipatnam,Public Transport,5.0,35,20,0.5
+C006,Nampally,Mehdipatnam,Car,5.0,18,70,1.0
+C007,Nampally,Ameerpet,Walking,4.0,50,0,0.0
+C007,Nampally,Ameerpet,Bicycle,4.0,17,0,0.0
+C007,Nampally,Ameerpet,Public Transport,4.0,28,20,0.4
+C007,Nampally,Ameerpet,Car,4.0,13,60,0.8
+C008,Mehdipatnam,Charminar,Walking,6.0,76,0,0.0
+C008,Mehdipatnam,Charminar,Bicycle,6.0,25,0,0.0
+C008,Mehdipatnam,Charminar,Public Transport,6.0,42,25,0.6
+C008,Mehdipatnam,Charminar,Car,6.0,21,90,1.2
+C009,Mehdipatnam,Banjara Hills,Walking,4.0,51,0,0.0
+C009,Mehdipatnam,Banjara Hills,Bicycle,4.0,17,0,0.0
+C009,Mehdipatnam,Banjara Hills,Public Transport,4.0,30,20,0.4
+C009,Mehdipatnam,Banjara Hills,Car,4.0,15,70,0.8
+C010,Ameerpet,Begumpet,Walking,3.5,44,0,0.0
+C010,Ameerpet,Begumpet,Bicycle,3.5,15,0,0.0
+C010,Ameerpet,Begumpet,Public Transport,3.5,25,15,0.3
+C010,Ameerpet,Begumpet,Car,3.5,12,55,0.6
+C011,Ameerpet,Banjara Hills,Walking,4.0,51,0,0.0
+C011,Ameerpet,Banjara Hills,Bicycle,4.0,17,0,0.0
+C011,Ameerpet,Banjara Hills,Public Transport,4.0,29,20,0.4
+C011,Ameerpet,Banjara Hills,Car,4.0,14,65,0.8
+C012,Begumpet,Secunderabad,Walking,4.0,51,0,0.0
+C012,Begumpet,Secunderabad,Bicycle,4.0,17,0,0.0
+C012,Begumpet,Secunderabad,Public Transport,4.0,29,15,0.4
+C012,Begumpet,Secunderabad,Car,4.0,14,55,0.8
+C013,Begumpet,Jubilee Hills,Walking,5.0,64,0,0.0
+C013,Begumpet,Jubilee Hills,Bicycle,5.0,21,0,0.0
+C013,Begumpet,Jubilee Hills,Public Transport,5.0,35,20,0.5
+C013,Begumpet,Jubilee Hills,Car,5.0,18,70,1.0
+C014,Banjara Hills,Jubilee Hills,Walking,3.0,38,0,0.0
+C014,Banjara Hills,Jubilee Hills,Bicycle,3.0,13,0,0.0
+C014,Banjara Hills,Jubilee Hills,Public Transport,3.0,22,15,0.3
+C014,Banjara Hills,Jubilee Hills,Car,3.0,11,50,0.6
+C015,Jubilee Hills,HITEC City,Walking,6.0,76,0,0.0
+C015,Jubilee Hills,HITEC City,Bicycle,6.0,25,0,0.0
+C015,Jubilee Hills,HITEC City,Public Transport,6.0,42,25,0.6
+C015,Jubilee Hills,HITEC City,Car,6.0,19,90,1.2
+C016,Jubilee Hills,Gachibowli,Walking,5.0,64,0,0.0
+C016,Jubilee Hills,Gachibowli,Bicycle,5.0,21,0,0.0
+C016,Jubilee Hills,Gachibowli,Public Transport,5.0,35,20,0.5
+C016,Jubilee Hills,Gachibowli,Car,5.0,18,75,1.0
+C017,HITEC City,Gachibowli,Walking,3.5,45,0,0.0
+C017,HITEC City,Gachibowli,Bicycle,3.5,15,0,0.0
+C017,HITEC City,Gachibowli,Public Transport,3.5,25,20,0.4
+C017,HITEC City,Gachibowli,Car,3.5,12,60,0.7
+C018,HITEC City,Miyapur,Walking,9.0,114,0,0.0
+C018,HITEC City,Miyapur,Bicycle,9.0,38,0,0.0
+C018,HITEC City,Miyapur,Public Transport,9.0,52,30,0.8
+C018,HITEC City,Miyapur,Car,9.0,25,130,1.8
+C019,Ameerpet,Kukatpally,Walking,6.0,76,0,0.0
+C019,Ameerpet,Kukatpally,Bicycle,6.0,25,0,0.0
+C019,Ameerpet,Kukatpally,Public Transport,6.0,40,25,0.6
+C019,Ameerpet,Kukatpally,Car,6.0,20,100,1.2
+C020,Kukatpally,Miyapur,Walking,5.0,64,0,0.0
+C020,Kukatpally,Miyapur,Bicycle,5.0,21,0,0.0
+C020,Kukatpally,Miyapur,Public Transport,5.0,35,20,0.5
+C020,Kukatpally,Miyapur,Car,5.0,17,70,0.9
+C021,Begumpet,Paradise,Walking,2.5,32,0,0.0
+C021,Begumpet,Paradise,Bicycle,2.5,11,0,0.0
+C021,Begumpet,Paradise,Public Transport,2.5,18,15,0.3
+C021,Begumpet,Paradise,Car,2.5,9,40,0.6
+C022,Paradise,Secunderabad,Walking,2.0,26,0,0.0
+C022,Paradise,Secunderabad,Bicycle,2.0,9,0,0.0
+C022,Paradise,Secunderabad,Public Transport,2.0,16,15,0.2
+C022,Paradise,Secunderabad,Car,2.0,8,35,0.4
+C023,Koti,Dilsukhnagar,Walking,5.5,70,0,0.0
+C023,Koti,Dilsukhnagar,Bicycle,5.5,23,0,0.0
+C023,Koti,Dilsukhnagar,Public Transport,5.5,38,20,0.6
+C023,Koti,Dilsukhnagar,Car,5.5,19,75,1.2
+C024,Dilsukhnagar,LB Nagar,Walking,3.0,38,0,0.0
+C024,Dilsukhnagar,LB Nagar,Bicycle,3.0,13,0,0.0
+C024,Dilsukhnagar,LB Nagar,Public Transport,3.0,22,15,0.3
+C024,Dilsukhnagar,LB Nagar,Car,3.0,11,45,0.6
+C025,LB Nagar,Uppal,Walking,6.0,76,0,0.0
+C025,LB Nagar,Uppal,Bicycle,6.0,25,0,0.0
+C025,LB Nagar,Uppal,Public Transport,6.0,40,25,0.6
+C025,LB Nagar,Uppal,Car,6.0,20,85,1.3
+C026,Uppal,Koti,Walking,7.0,88,0,0.0
+C026,Uppal,Koti,Bicycle,7.0,29,0,0.0
+C026,Uppal,Koti,Public Transport,7.0,48,25,0.7
+C026,Uppal,Koti,Car,7.0,24,95,1.4
+C027,Secunderabad,Paradise,Walking,2.0,26,0,0.0
+C027,Secunderabad,Paradise,Bicycle,2.0,9,0,0.0
+C027,Secunderabad,Paradise,Public Transport,2.0,16,15,0.2
+C027,Secunderabad,Paradise,Car,2.0,8,35,0.4
+C028,Banjara Hills,Mehdipatnam,Walking,4.0,51,0,0.0
+C028,Banjara Hills,Mehdipatnam,Bicycle,4.0,17,0,0.0
+C028,Banjara Hills,Mehdipatnam,Public Transport,4.0,29,20,0.4
+C028,Banjara Hills,Mehdipatnam,Car,4.0,14,65,0.8
+C029,Tolichowki,Gachibowli,Walking,5.0,64,0,0.0
+C029,Tolichowki,Gachibowli,Bicycle,5.0,21,0,0.0
+C029,Tolichowki,Gachibowli,Public Transport,5.0,35,25,0.5
+C029,Tolichowki,Gachibowli,Car,5.0,17,85,1.0
+C030,HITEC City,Kukatpally,Walking,7.0,89,0,0.0
+C030,HITEC City,Kukatpally,Bicycle,7.0,30,0,0.0
+C030,HITEC City,Kukatpally,Public Transport,7.0,50,25,0.7
+C030,HITEC City,Kukatpally,Car,7.0,23,100,1.4
