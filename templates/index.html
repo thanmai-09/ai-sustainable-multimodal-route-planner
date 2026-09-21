@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sustainable Multimodal Route Planner</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <h1>AI-Powered Sustainable Multimodal Route Planner</h1>
+
+    <p>
+        Plan sustainable journeys based on time, budget,
+        transportation availability, and CO₂ emissions.
+    </p>
+
+    <form method="POST">
+
+        <label for="source">Source:</label>
+	<select name="source" id="source" required>
+    		<option value="">Select source</option>
+
+    		{% for location in locations %}
+        		<option value="{{ location }}">{{ location }}</option>
+     		{% endfor %}
+
+	</select>
+        
+        <br><br>
+
+        <label for="destination">Destination:</label>
+	<select name="destination" id="destination" required>
+    		<option value="">Select destination</option>
+
+    		{% for location in locations %}
+        		<option value="{{ location }}">{{ location }}</option>
+    		{% endfor %}
+
+	</select>
+        
+        <br><br>
+
+        <label for="max_budget">Maximum Budget (₹):</label>
+        <input
+            type="number"
+            name="max_budget"
+            id="max_budget"
+            min="0"
+            required
+        >
+
+        <br><br>
+
+        <label for="max_time">Maximum Travel Time (minutes):</label>
+        <input
+            type="number"
+            name="max_time"
+            id="max_time"
+            min="1"
+            required
+        >
+
+        <br><br>
+
+        <p>Available Transportation Modes:</p>
+
+        <label>
+            <input
+                type="checkbox"
+                name="modes"
+                value="Walking"
+            >
+            Walking
+        </label>
+
+        <br>
+
+        <label>
+            <input
+                type="checkbox"
+                name="modes"
+                value="Bicycle"
+            >
+            Bicycle
+        </label>
+
+        <br>
+
+        <label>
+            <input
+                type="checkbox"
+                name="modes"
+                value="Public Transport"
+            >
+            Public Transport
+        </label>
+
+        <br>
+
+        <label>
+            <input
+                type="checkbox"
+                name="modes"
+                value="Car"
+            >
+            Car
+        </label>
+
+        <br><br>
+
+        <button type="submit">
+            Find Sustainable Routes
+        </button>
+
+    </form>
+    
+    {% if result %}
+    <h2>Route Planning Result</h2>
+
+    <p>Status: {{ result["status"] }}</p>
+
+    {% if result["status"] == "feasible" %}
+
+	<h3>Recommended Route</h3>
+
+	{% for route in result["recommended_route"].to_dict(orient="records") %}
+
+    		<div class="recommended-route">
+
+        		<p>
+            			Path:
+            			{{ route["path"] | join(" → ") }}
+                        </p>
+
+        		<p>
+            			Modes:
+            			{{ route["modes"] | join(" → ") }}
+        		</p>
+
+        		<p>
+            			Travel Time:
+            			{{ route["total_time"] }} minutes
+        		</p>
+
+        		<p>
+            			Cost:
+            			₹{{ route["total_cost"] }}
+        		</p>
+
+        		<p>
+            			CO₂ Emissions:
+            			{{ route["total_co2"] }} kg
+        		</p>
+			
+			<p>
+            			<strong>Why this route?</strong>
+            			{{ route["recommendation_reason"] }}
+        		</p>
+
+    		</div>
+
+	{% endfor %}
+
+        <h3>Available Routes</h3>
+
+        {% for route in result["routes"].to_dict(orient="records") %}
+
+            <div>
+                <p><strong>Route {{ loop.index }}</strong></p>
+
+                <p>
+                    Path:
+                    {{ route["path"] | join(" → ") }}
+                </p>
+
+                <p>
+                    Modes:
+                    {{ route["modes"] | join(" → ") }}
+                </p>
+
+                <p>
+                    Travel Time:
+                    {{ route["total_time"] }} minutes
+                </p>
+
+                <p>
+                    Cost:
+                    ₹{{ route["total_cost"] }}
+                </p>
+
+                <p>
+                    CO₂ Emissions:
+                    {{ route["total_co2"] }} kg
+                </p>
+
+                <hr>
+
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+    {% if result["status"] == "no_feasible_route" %}
+
+            <h3>No Feasible Route Found</h3>
+
+            <p>
+                No route satisfies both your maximum travel time
+                and maximum budget.
+            </p>
+
+            <h3>Closest Alternatives</h3>
+
+            {% for route in result["alternative_routes"].to_dict(orient="records") %}
+
+                <div>
+
+                    <p>
+                        <strong>Alternative Route {{ loop.index }}</strong>
+                    </p>
+
+                    <p>
+                        Path:
+                        {{ route["path"] | join(" → ") }}
+                    </p>
+
+                    <p>
+                        Modes:
+                        {{ route["modes"] | join(" → ") }}
+                    </p>
+
+                    <p>
+                        Travel Time:
+                        {{ route["total_time"] }} minutes
+                    </p>
+
+                    <p>
+                        Cost:
+                        ₹{{ route["total_cost"] }}
+                    </p>
+
+                    <p>
+                        CO₂ Emissions:
+                        {{ route["total_co2"] }} kg
+                    </p>
+
+                    <p>
+                        Extra Time Required:
+                        {{ route["extra_time"] }} minutes
+                    </p>
+
+                    <p>
+                        Extra Budget Required:
+                        ₹{{ route["extra_budget"] }}
+                    </p>
+
+                    <hr>
+
+                </div>
+
+            {% endfor %}
+
+    {% endif %}    
+
+
+{% endif %}
+
+</body>
+
+</html>
