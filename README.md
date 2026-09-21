@@ -54,6 +54,18 @@ The route with the lowest score is presented as the recommended option.
 
 ---
 
+## Route Sustainability Comparison
+
+The system provides a comparison of the displayed routes using relative percentages for:
+
+- **Time Efficiency** – compares each route's travel time with the fastest displayed route.
+- **Cost Efficiency** – compares each route's cost with the cheapest displayed route.
+- **CO₂ Efficiency** – compares each route's emissions with the lowest-emission displayed route.
+
+This allows users to understand the trade-offs between travel time, cost, and environmental impact across the available routes.
+
+---
+
 ## No-Feasible-Route Handling
 
 When no route satisfies both the user's time and budget constraints, the system does not present an infeasible route as a valid option.

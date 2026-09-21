@@ -122,3 +122,35 @@ hr {
     border: 2px solid #2e7d32;
     background-color: #f1f8f2;
 }
+
+/* Route comparison table */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+th,
+td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+td {
+    color: #333;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}

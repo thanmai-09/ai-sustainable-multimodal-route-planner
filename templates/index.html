@@ -205,6 +205,47 @@
 
         {% endfor %}
 
+	        <h3>Route Sustainability Comparison</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Route</th>
+                    <th>Travel Time (min)</th>
+                    <th>Cost (₹)</th>
+                    <th>CO₂ (kg)</th>
+                    <th>Time Efficiency</th>
+                    <th>Cost Efficiency</th>
+                    <th>CO₂ Efficiency</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for route in result["route_comparison"].to_dict(orient="records") %}
+
+                <tr>
+                    <td>
+                        {% if loop.index == 1 %}
+                            ⭐ Recommended Route
+                        {% else %}
+                            Route {{ loop.index }}
+                        {% endif %}
+                    </td>
+
+                    <td>{{ route["total_time"] }}</td>
+                    <td>₹{{ route["total_cost"] }}</td>
+                    <td>{{ route["total_co2"] }}</td>
+                    <td>{{ route["time_efficiency_pct"] }}%</td>
+                    <td>{{ route["cost_efficiency_pct"] }}%</td>
+                    <td>{{ route["co2_efficiency_pct"] }}%</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
     {% endif %}
 
     {% if result["status"] == "no_feasible_route" %}
@@ -266,6 +307,44 @@
                 </div>
 
             {% endfor %}
+
+	    <h3>Route Sustainability Comparison</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Travel Time (min)</th>
+                        <th>Cost (₹)</th>
+                        <th>CO₂ (kg)</th>
+                        <th>Time Efficiency</th>
+                        <th>Cost Efficiency</th>
+                        <th>CO₂ Efficiency</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for route in result["route_comparison"].to_dict(orient="records") %}
+
+                    <tr>
+                        <td>
+                            Alternative {{ loop.index }}
+                        </td>
+
+                        <td>{{ route["total_time"] }}</td>
+                        <td>₹{{ route["total_cost"] }}</td>
+                        <td>{{ route["total_co2"] }}</td>
+                        <td>{{ route["time_efficiency_pct"] }}%</td>
+                        <td>{{ route["cost_efficiency_pct"] }}%</td>
+                        <td>{{ route["co2_efficiency_pct"] }}%</td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
 
     {% endif %}    
 

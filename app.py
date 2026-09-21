@@ -555,6 +555,47 @@ def recommend_route(routes):
 
     return recommended_route
 
+def calculate_route_comparison(routes):
+    comparison = routes.copy()
+
+    if comparison.empty:
+        return comparison
+
+    fastest_time = comparison["total_time"].min()
+    cheapest_cost = comparison["total_cost"].min()
+    lowest_co2 = comparison["total_co2"].min()
+
+    comparison["time_efficiency_pct"] = (
+        fastest_time / comparison["total_time"] * 100
+    ).round(1)
+
+    if cheapest_cost == 0:
+        comparison["cost_efficiency_pct"] = (
+            100.0 if (comparison["total_cost"] == 0).all()
+            else comparison["total_cost"].apply(
+                lambda x: 100.0 if x == 0 else 0.0
+            )
+        )
+    else:
+        comparison["cost_efficiency_pct"] = (
+            cheapest_cost / comparison["total_cost"] * 100
+        ).round(1)
+
+    if lowest_co2 == 0:
+        comparison["co2_efficiency_pct"] = (
+            100.0 if (comparison["total_co2"] == 0).all()
+            else comparison["total_co2"].apply(
+                lambda x: 100.0 if x == 0 else 0.0
+            )
+        )
+    else:
+        comparison["co2_efficiency_pct"] = (
+            lowest_co2 / comparison["total_co2"] * 100
+        ).round(1)
+
+    return comparison
+
+
 # Main route planning function for user inputs
 def plan_routes(
     source,
@@ -600,6 +641,10 @@ def plan_routes(
             top_routes
         )
 
+        route_comparison = calculate_route_comparison(
+            scored_routes
+        )
+
         recommended_route = recommend_route(
             scored_routes
         )
@@ -611,7 +656,8 @@ def plan_routes(
             "feasible_journeys": feasible_journeys,
             "routes": scored_routes,
             "recommended_route": recommended_route,
-            "alternative_routes": pd.DataFrame()
+            "alternative_routes": pd.DataFrame(),
+            "route_comparison": route_comparison
         }
 
     # If no feasible routes exist
@@ -628,6 +674,10 @@ def plan_routes(
         max_budget
     )
 
+    route_comparison = calculate_route_comparison(
+        closest_alternatives
+    )
+
     return {
         "status": "no_feasible_route",
         "paths": paths,
@@ -635,7 +685,8 @@ def plan_routes(
         "feasible_journeys": feasible_journeys,
         "routes": pd.DataFrame(),
         "recommended_route": pd.DataFrame(),
-        "alternative_routes": closest_alternatives
+        "alternative_routes": closest_alternatives,
+        "route_comparison": route_comparison
     }
 
 
